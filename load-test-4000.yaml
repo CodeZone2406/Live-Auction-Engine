@@ -1,12 +1,12 @@
 config:
   target: "ws://localhost:4000"
   phases:
-    - duration: 1
-      arrivalCount: 1
+    - duration: 10
+      arrivalCount: 5
 
 scenarios:
   - engine: "ws"
     flow:
-      - send: '{"type":"PLACE_BID","payload":{"amount":400,"userId":"user-4000"}}'
-      - think: 1
+      - send: {"type":"PLACE_BID","payload":{"amount": {{$randomNumber(100, 5000)}}, "userId": "user_4001_{{$uid}}"}}
+      - think: 0.5
       
