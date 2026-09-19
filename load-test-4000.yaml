@@ -1,0 +1,12 @@
+config:
+  target: "ws://localhost:4000"
+  phases:
+    - duration: 1
+      arrivalCount: 1
+
+scenarios:
+  - engine: "ws"
+    flow:
+      - send: '{"type":"PLACE_BID","payload":{"amount":400,"userId":"user-4000"}}'
+      - think: 1
+      
