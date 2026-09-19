@@ -34,18 +34,6 @@ app.get("/health", (_request, response) => {
   response.json({ status: "ok" });
 });
 
-// app.get("/", async (_request, response, next) => {
-//   try {
-//     const htmlFile = await fs.readFile(
-//       path.resolve("./template/index.html"),
-//       "utf-8",
-//     );
-
-//     response.type("html").send(htmlFile);
-//   } catch (error) {
-//     next(error);
-//   }
-// });
 
 const server = http.createServer(app);
 const webSocketServer = new WebSocketServer({ server });
