@@ -1,14 +1,6 @@
 import { Redis } from "ioredis";
 
+const redisUrl = process.env.REDIS_URL || "redis://localhost:6379";
 
-export const redisPublish = new Redis({
-    host: process.env.REDIS_HOST ?? "localhost",
-    port: Number(process.env.REDIS_PORT ?? 6379),
-})
-
-export const redisSubscribe = new Redis({
-    host: process.env.REDIS_HOST ?? "localhost",
-    port: Number(process.env.REDIS_PORT ?? 6379),
-})
-
-
+export const redisPublish = new Redis(redisUrl);
+export const redisSubscribe = new Redis(redisUrl);
