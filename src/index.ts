@@ -1,9 +1,6 @@
 import "dotenv/config";
-
 import express from "express";
 import http from "node:http";
-import fs from "node:fs/promises";
-import path from "path";
 import morgan from "morgan";
 import { WebSocket, WebSocketServer } from "ws";
 import { redisPublish, redisSubscribe } from "./config/redis.js";
