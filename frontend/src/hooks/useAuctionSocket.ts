@@ -11,7 +11,9 @@ export const useAuctionSocket = (url: string) => {
   const socketRef = useRef<WebSocket | null>(null);
 
   useEffect(() => {
-    const socket = new WebSocket(url);
+    const cleanUrl = import.meta.env.VITE_WS_URL || "localhost:4000";
+    const protocol = window.location.protocol === "https:" ? "wss://" : "ws://";
+    const socket = new WebSocket(`${protocol}${cleanUrl}`);
     socketRef.current = socket;
 
     socket.onopen = () => {
